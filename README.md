@@ -1,58 +1,185 @@
-# React + Vite
+# Full-Stack E-Commerce Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Overview
 
-Currently, two official plugins are available:
+This project is an end-to-end e-commerce web application built using React, Express.js, and MongoDB. It provides a complete shopping experience for customers and a dedicated administrative interface for managing products and orders.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application includes:
 
+- A React single-page application (SPA) frontend, bundled with Vite for fast development and Hot Module Replacement (HMR).
+- A Node.js/Express.js backend exposing RESTful APIs.
+- A MongoDB database for persistence of users, products, orders, and reviews.
+- PayPal integration for secure payment processing.
 
+---
 
-🛒 E-Commerce Website
-An end-to-end full-stack e-commerce web application built using React, Express.js, and MongoDB. This platform enables customers to browse, purchase, and review products while providing an admin dashboard for managing product listings and orders.
+## 2. Architecture and Technology Stack
 
-✨ Features
-🔐 User Functionality
-✅ User Authentication
+### 2.1 High-Level Architecture
 
-Register, Login, and Logout with secured sessions
+- **Frontend:** React + Vite
+- **Backend:** Node.js + Express.js
+- **Database:** MongoDB
+- **Payments:** PayPal API / PayPal Developer SDK
 
-🛍️ Product Shopping
+### 2.2 Technology Stack Details
 
-Browse products, view detailed descriptions, and add to cart
+| Layer       | Technology            | Purpose                                                  |
+|------------|------------------------|----------------------------------------------------------|
+| Frontend   | React                  | Component-based user interface                           |
+| Build Tool | Vite                   | Fast development server and optimized production builds  |
+| Backend    | Express.js             | Web framework for routing and API endpoints              |
+| Database   | MongoDB                | NoSQL database for flexible schema and high scalability  |
+| Payments   | PayPal API / SDK       | Secure, external payment processing                      |
 
-💳 Payment Integration
+---
 
-Seamless checkout with PayPal (via PayPal Developer SDK)
+## 3. Features
 
-⭐ Ratings & Reviews
+### 3.1 Customer-Facing Functionality
 
-Users can rate and review products only after purchasing them
+**User Authentication**
 
-🖼️ Hero Section with Auto Image Slideshow
+- User registration, login, and logout.
+- Secure session handling for authenticated access to protected routes.
 
-Automatically changing images in the home hero section for a dynamic user experience
+**Product Browsing and Shopping**
 
-🛠️ Admin Dashboard
-Accessible only to authorized admin users:
+- Browse a catalog of products with:
+  - Name
+  - Description
+  - Price
+  - Stock availability
+  - Product images
+- Add products to a shopping cart for later checkout.
 
-➕ Add New Products
+**Checkout and Payments**
 
-✏️ Update Product Details
+- Streamlined checkout workflow for authenticated users.
+- Integration with PayPal via the PayPal Developer SDK for secure transactions.
 
-Name, Description, Price, Stock, Images
+**Ratings and Reviews**
 
-❌ Delete Products
+- Customers can submit product ratings and text reviews.
+- Reviews are restricted to users who have purchased the corresponding product.
 
-🔄 Update Order Status
+**Dynamic Home Page Hero Section**
 
-Change shipping and delivery states
+- Hero section on the home page with an automated image slideshow.
+- Configurable set of images for promotional or branding content.
 
-📦 Manage Orders
+---
 
-View all placed orders with full details
+### 3.2 Administration Dashboard
 
-🧑‍💻 Tech Stack
-Frontend	     Backend	         Database	       Payment
-React	         Express.js	         MongoDB	       PayPal API
+Access to the admin dashboard is restricted to authorized administrative users.
+
+**Product Management**
+
+- Create new product listings.
+- Update existing products, including:
+  - Name
+  - Description
+  - Price
+  - Stock quantity
+  - Images
+- Delete products from the catalog.
+
+**Order Management**
+
+- View a list of all customer orders with relevant details.
+- Update order status, including:
+  - Shipping status
+  - Delivery status
+
+---
+
+## 4. Frontend Development with React and Vite
+
+The frontend is scaffolded using Vite for a modern, efficient development experience with HMR and optimized builds.
+
+This setup uses one of Vite’s official React plugins for Fast Refresh:
+
+- `@vitejs/plugin-react`  
+  Uses [Babel](https://babeljs.io/) for enabling React Fast Refresh.
+
+- `@vitejs/plugin-react-swc`  
+  Uses [SWC](https://swc.rs/) (a Rust-based compiler) for faster builds and Fast Refresh.
+
+Both plugins provide equivalent functionality for development; the choice between them depends on performance and tooling preferences.
+
+---
+
+## 5. Getting Started
+
+### 5.1 Prerequisites
+
+- Node.js (version 14 or later recommended)
+- npm or yarn
+- MongoDB instance (local or hosted, e.g., MongoDB Atlas)
+- PayPal Developer account and Client ID
+
+### 5.2 Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/your-organization/your-repo.git
+   cd your-repo
+   
+2. **Install frontend dependencies**
+
+   ```bash
+   cd frontend
+   npm install
+   # or
+   # yarn install
+   ```
+
+3. **Install backend dependencies**
+
+   ```bash
+   cd ../backend
+   npm install
+   # or
+   # yarn install
+   ```
+
+### 5.3 Environment Configuration
+
+Create an `.env` file in the backend directory with at least the following variables:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+PAYPAL_CLIENT_ID=your_paypal_client_id
+```
+
+Adjust names and values as required by your internal standards and deployment environment.
+
+### 5.4 Running the Application
+
+Run the backend and frontend in separate terminals.
+
+**Backend (Express.js)**
+
+```bash
+cd backend
+npm run server
+# or
+# yarn server
+```
+
+**Frontend (React + Vite)**
+
+```bash
+cd frontend
+npm run dev
+# or
+# yarn dev
+```
+
+By default, Vite will start the frontend development server on a port such as `http://localhost:5173`, and the backend will run on the configured `PORT` (e.g., `http://localhost:5000`).
+
+---
