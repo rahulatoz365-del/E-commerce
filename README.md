@@ -181,5 +181,3 @@ npm run dev
 ```
 
 By default, Vite will start the frontend development server on a port such as `http://localhost:5173`, and the backend will run on the configured `PORT` (e.g., `http://localhost:5000`).
-
----
